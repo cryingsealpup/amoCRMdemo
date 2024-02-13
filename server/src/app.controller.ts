@@ -5,15 +5,17 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/lead')
   async createLead() {
-    // Создаем сделку для контакта
+    // Создаем сделку
     const lead = await this.appService.createLead();
-
     return lead;
   }
-  // @Get()
-  // getHello(): string {
-  //   return this.appService.getHello();
-  // }
+
+  @Get('/')
+  async hello() {
+    // Дефолт
+    return 'Hello World';
+  }
+
 }

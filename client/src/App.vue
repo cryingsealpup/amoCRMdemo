@@ -1,19 +1,14 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
-import { defineStore } from 'pinia';
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0);
-  function increment() {
-    count.value++;
-  }
-  return { count, increment };
-});
-const loading = ref({
-  status: false,
-  class: ['cursor-pointer']
-});
+import { storeToRefs } from 'pinia';
+import { useActionsStore } from './stores/useActionsStore';
+
+const actions = useActionsStore();
+const { postLead } = storeToRefs(actions);
+actions.postLead();
 
 const hover = ref('')
+const loading = ref(false);
 
 watch(loading, () => {
   loading.value.class = ['cursor-progress', 'bg-indigo-accent-2']
