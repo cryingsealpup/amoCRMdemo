@@ -6,3 +6,5 @@ Note: to start server, you need to place .env file with X-Client-Id field.
 ## References 
 https://docs.nestjs.com/techniques/configuration
 
+https://blog.logrocket.com/understanding-controllers-routes-nestjs/
+

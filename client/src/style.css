@@ -1,3 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.v-btn.on-load {
+    cursor: progress;
+}
+
+.v-btn {
+    width: 7rem;
+}
+
+.v-btn .on-disabled {
+    background: azure;
+}
+
+.v-layout {
+    max-width: 1440px;
+    margin: 0 auto;
+}

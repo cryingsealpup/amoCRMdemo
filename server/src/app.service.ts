@@ -9,12 +9,12 @@ export class AppService {
 
   constructor(private configService: ConfigService) { }
 
-  async getAccessToken(clientId: string) {
+  async getAccessToken(clientId: string): Promise<any> {
     const res = await axios.get(
       `https://test.gnzs.ru/oauth/get-token.php`,
       {
         headers: {
-          "X-Client-Id" : clientId
+          "X-Client-Id": clientId
         }
       }
     );
@@ -22,20 +22,19 @@ export class AppService {
     return res.status === 204 ? null : await res.data;
   }
 
-  async createLead() {
+  async create(type, ename): Promise<any> {
     const { access_token, base_domain } = await this.meta;
-    console.log(`https://${base_domain}/api/v4/leads`);
+    console.log(type, ename);
     let res = await axios.post(
-      `https://${base_domain}/api/v4/leads`,
+      `https://${base_domain}/api/v4/${type}`,
+      [{ name: ename}],
       {
         headers: {
-          'User-Agent': 'amoCRM-oAuth-client/1.0',
-          Authorization: `Bearer ${access_token}`,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${access_token}`,
         },
       },
     );
-    console.log(res);
-    return res.data._embedded.leads[0];
+    return res.data._embedded;
   }
 }

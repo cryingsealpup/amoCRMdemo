@@ -1,14 +1,13 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
-  @Get('/lead')
-  async createLead() {
-    // Создаем сделку
-    const lead = await this.appService.createLead();
+  @Get('/create')
+  async create(@Query() params: any): Promise<any> {
+    const lead = await this.appService.create(params.type, params.name);
     return lead;
   }
 
