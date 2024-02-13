@@ -1,0 +1,33 @@
+{
+  "name": "amocrmdemo",
+  "version": "1.0.0",
+  "description": "Training task for Gnzs",
+  "main": "index.js",
+  "scripts": {
+    "build:server": "cd ./server && npm run build",
+    "build:client": "cd ./client && npm run build",
+    "dev:client": "cd ./client && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryingsealpup/amoCRMdemo.git"
+  },
+  "keywords": [
+    "ampcrm",
+    "pinia",
+    "vue",
+    "vuetify",
+    "nest.js",
+    "rest"
+  ],
+  "author": "Ekaterina Radchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cryingsealpup/amoCRMdemo/issues"
+  },
+  "homepage": "https://github.com/cryingsealpup/amoCRMdemo#readme",
+  "dependencies": {
+    "axios": "^0.28.0"
+  }
+}
