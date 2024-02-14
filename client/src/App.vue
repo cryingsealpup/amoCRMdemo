@@ -1,21 +1,8 @@
 <script setup>
-import { ref, watch } from 'vue'
-import { storeToRefs } from 'pinia';
 import CreateButton from './components/CreateButton.vue'
 import SelectBox from './components/SelectBox.vue';
 import ResultBox from './components/ResultBox.vue';
 import NameInput from './components/NameInput.vue';
-// const actions = useEntitiesStore();
-// const { createEntity } = storeToRefs(actions);
-// createEntity('contract');
-
-// const hover = ref('')
-// const loading = ref(false);
-
-// watch(loading, () => {
-//   loading.value.class = ['cursor-progress', 'bg-indigo-accent-2']
-//   setTimeout(() => (loading.value.status = false), 300)
-// })
 
 </script>
 

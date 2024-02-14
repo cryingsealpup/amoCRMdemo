@@ -15,6 +15,6 @@ const rules = ref([
 <template>
     <div class="ma-4 w-75">
         <v-text-field label="Введите имя" :rules="rules" hide-details="auto" v-model="actions.name"
-            v-if="actions.entity !== null"></v-text-field>
+            v-if="actions.entity !== null" @keyup.enter="actions.createEntity()" :disabled="actions.loading" autofocus></v-text-field>
     </div>
 </template>

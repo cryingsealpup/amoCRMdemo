@@ -26,5 +26,5 @@ const actions = useEntitiesStore();
 
 <template>
     <v-select class="cursor-pointer" v-model="actions.$state.entity" label="Выберите сущность" :items="entities"
-        :item-value="path" clearable></v-select>
+        :item-value="path" :disabled="actions.loading" clearable></v-select>
 </template>

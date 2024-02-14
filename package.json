@@ -30,6 +30,10 @@
   },
   "homepage": "https://github.com/cryingsealpup/amoCRMdemo#readme",
   "dependencies": {
-    "axios": "^0.28.0"
+    "axios": "^0.28.0",
+    "pinia-plugin-persistedstate": "^3.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

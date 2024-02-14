@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createPersistedState } from 'pinia-plugin-persistedstate'
+
 import App from './App.vue'
 import '@mdi/font/css/materialdesignicons.css'
 
@@ -11,6 +13,9 @@ import * as directives from 'vuetify/directives'
 
 const pinia = createPinia()
 const app = createApp(App)
+pinia.use(createPersistedState({
+    storage: sessionStorage,
+  }))
 const vuetify = createVuetify({
     components,
     directives,

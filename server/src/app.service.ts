@@ -24,7 +24,6 @@ export class AppService {
 
   async create(type, ename): Promise<any> {
     const { access_token, base_domain } = await this.meta;
-    console.log(type, ename);
     let res = await axios.post(
       `https://${base_domain}/api/v4/${type}`,
       [{ name: ename}],

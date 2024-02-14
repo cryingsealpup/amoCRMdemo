@@ -8,7 +8,7 @@ const httpClient = axios.create({
 
 export const useEntitiesStore = defineStore('main', {
     state: () => ({ 
-        result: null,
+        result: [],
         loading: false, 
         entity: null,
         name: null
@@ -17,12 +17,12 @@ export const useEntitiesStore = defineStore('main', {
     actions: {
         async createEntity(): Promise<any> {
             this.loading = true;
+            this.result.push([{ id: null, name: null }]);
             try {
                 const res = await httpClient.get(`/create?type=${this.entity}&name=${this.name}`);
                 this.loading = false;
-                this.result = res.data;
+                this.result[this.result.length - 1] = { id: res.data[this.entity][0].id, name: this.name };
                 this.name = null;
-                console.log(res.data)
                 return res.data;
             } catch (error) {
                 this.loading = false;
@@ -30,5 +30,6 @@ export const useEntitiesStore = defineStore('main', {
                 throw new Error("Something went wrong");
             }
         }
-    }
+    },
+    persist: true
 })
